@@ -13,6 +13,11 @@ html {
     width: 50%;
     height: 2px;
   }
+
+#ver {
+  opacity: 12.5%;
+}
+
   iframe {
     width: 560px;
     height: 315px;
@@ -25,7 +30,7 @@ html {
     text-decoration: underline;
   }
   #video-holder:last-child {
-      margin-bottom: 5rem !important;
+      margin-bottom: 5px !important;
   }
   *::before, *::after {
     -webkit-box-sizing: border-box;
