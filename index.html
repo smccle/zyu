@@ -13,6 +13,7 @@
   <!-- Analytics -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR0J225RDB"></script>
+<script src="https://kit.fontawesome.com/8c24e81df2.js" crossorigin="anonymous"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -44,9 +45,19 @@
         <div id="video-holder-holder">
             <div id="video-holder" class="center" style="display:none;">
                 <hr>
-                <iframe id="video" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?wmode=transparent&amp;iv_load_policy=3&amp;autoplay=0&amp;html5=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=0&amp;theme=light" frameborder="0" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+                <div class="video">
+                    <iframe id="video" src="" frameborder="0" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+                    <p style="cursor: pointer; font-style: italic; color: lightseagreen;" id="ofs">Open fullscreen <i class="fa-solid fa-up-right-from-square"></i></p>
+                </div>
                 <h2 id="title"></h2>
                 <p id="user"></p>
+
+                <!-- <br> -->
+
+                <!-- <div style="display: none;" class="lw"> -->
+                    <!-- <h2>Last Watched: </h2> -->
+                    <!-- <p style="cursor: pointer;" id="l" href="">Unavailable</p> -->
+                <!-- </div> -->
             </div>
         </div>
     </body>
@@ -55,7 +66,8 @@
           <div class="center">
             <p>Made ZYTK Devs<br>
                 Check Out <a class="linelink" href="https://www.github.com/z1tk/" target="_blank">My Github!</a></p>
-            <p id="ver">v0.2</p>
+            <p id="ver">v0.3</p>
           </div>
     </div>
 	<script src="./script.js"></script>
+</html>
