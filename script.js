@@ -1,5 +1,3 @@
-//https://www.youtube.com/watch?v=dQw4w9WgXcQ
-//https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?wmode=transparent&amp;iv_load_policy=3&amp;autoplay=1&amp;html5=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=0&amp;theme=light
 const base = "https://www.youtube-nocookie.com/embed/";
 const base2 = "https://www.youtube.com/";
 const watch = "watch?v=";
@@ -11,7 +9,11 @@ var url = document.getElementById('url');
 var t = document.querySelector("#title");
 var u = document.querySelector("#user");
 var video_holder;
-var vid = document.getElementById("video");
+var vid = document.querySelector(".video");
+var v = document.getElementById("video");
+var l = document.getElementById("l");
+var lw = document.querySelector(".lw");
+var ofs = document.getElementById("ofs");
 var video_holder_holder = document.getElementById('video-holder-holder');
 var link;
 var title;
@@ -21,17 +23,23 @@ submit.onclick = () => {
 	if(document.getElementById('instructions')) {
 		document.getElementById('instructions').remove();
 	}
+	vid.style.display = "";
 	link = url.value;
 	id = link.replace(strip_timestamps, "");
 	id = id.substr(id.length - 11, 11);
 	video_holder = document.getElementById('video-holder');
 	video_holder.style.display = 'block';
-	video_holder.children[1].src = base + id + end;
+	v.src = base + id + end;
 	video_holder_holder.appendChild(video_holder);
-	var oembed = "https://www.youtube.com/oembed?url=" + base2 + watch + id + "&format=json";
+	var oembed = "https://www.youtube.com/oembed?url=" + base2 + watch +  id + "&format=json";
 	// t.innerHTML = oembed
 	loadJSON(oembed, myData);
 	url.value = "";
+	ofs.addEventListener("click", () => {
+		var fs = `<title>Fullscreen Video</title> <iframe frameborder="0" src="` + base + id + end + `"></iframe>` + `<style>iframe {width: 100%; height: 100%;} * {padding: 0; margin: 0;}</style>`;
+		var w = window.open();
+		w.document.body.innerHTML = fs;
+	});
 }
 
 function loadJSON(path, success, error) {
@@ -42,9 +50,10 @@ function loadJSON(path, success, error) {
 		  success(JSON.parse(xhr.responseText));
 		}
 		else {
-		  t.innerHTML = "";
-		  u.innerHTML = "";
+		  t.innerHTML = "Video not found.";
+		  u.innerHTML = "Channel not found.";
 		  document.title = "zyu!";
+		  vid.style.display = "none";
 		}
 	  }
 	};
