@@ -14,6 +14,12 @@ html {
     height: 2px;
   }
 
+.fa-solid fa-up-right-from-square {
+  margin-left: 5px;
+  height: 5px;
+  width: 5px;
+}
+
 #ver {
   opacity: 12.5%;
 }
@@ -47,7 +53,7 @@ html {
       cursor: pointer;
       color: white;
       transition: 0.2s;
-      height: 1.3rem;
+      height: 1.5rem;
   }
 
   button:hover {
