@@ -36,7 +36,7 @@ submit.onclick = () => {
 	loadJSON(oembed, myData);
 	url.value = "";
 	ofs.addEventListener("click", () => {
-		var fs = `<title>Fullscreen Video</title> <iframe frameborder="0" src="` + base + id + end + `"></iframe>` + `<style>iframe {width: 100%; height: 100%;} * {padding: 0; margin: 0;}</style>`;
+		var fs = `<title>Fullscreen Video</title> <iframe frameborder="0" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" src="` + base + id + end + `"></iframe>` + `<style>iframe {width: 100%; height: 100%;} * {padding: 0; margin: 0;}</style>`;
 		var w = window.open();
 		w.document.body.innerHTML = fs;
 	});
