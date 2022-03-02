@@ -34,6 +34,7 @@ submit.onclick = () => {
 	var oembed = "https://www.youtube.com/oembed?url=" + base2 + watch +  id + "&format=json";
 	// t.innerHTML = oembed
 	loadJSON(oembed, myData);
+	setCookie("lwv", link, 60);
 	url.value = "";
 	ofs.addEventListener("click", () => {
 		var fs = `<title>Fullscreen Video</title> <iframe frameborder="0" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" src="` + base + id + end + `"></iframe>` + `<style>iframe {width: 100%; height: 100%;} * {padding: 0; margin: 0;}</style>`;
@@ -66,4 +67,36 @@ function loadJSON(path, success, error) {
 	t.innerHTML = Data.title;
 	u.innerHTML = Data.author_name;
 	document.title = Data.title + " - " + Data.author_name;
+	setCookie("lwvt", Data.title, 60);
+  }
+
+function setCookie(cname, cvalue, exdays) {
+	const d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	let expires = "expires=" + d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(';');
+	for(let i = 0; i < ca.length; i++) {
+	  let c = ca[i];
+	  while (c.charAt(0) == ' ') {
+		c = c.substring(1);
+	  }
+	  if (c.indexOf(name) == 0) {
+		return c.substring(name.length, c.length);
+	  }
+	}
+	return "";
+  }
+
+  function checkCookie() {
+	let lwv = getCookie("lwv");
+	let lwvt = getCookie("lwvt");
+	if (lwvt != "") {
+	  alert("Your last watched video is " + lwvt);
+	}
   }
