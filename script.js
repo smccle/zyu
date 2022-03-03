@@ -48,12 +48,14 @@ function loadJSON(path, success, error) {
 	  if (xhr.readyState === 4) {
 		if (xhr.status === 200) {;
 		  success(JSON.parse(xhr.responseText));
+		  lw.style.display = "none";
 		}
 		else {
 		  t.innerHTML = "Video not found.";
 		  u.innerHTML = "Channel not found.";
 		  document.title = "zyu!";
 		  vid.style.display = "none";
+		  lw.style.display = "none";
 		}
 	  }
 	};
