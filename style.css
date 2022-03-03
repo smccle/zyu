@@ -96,3 +96,8 @@ html {
       border-radius: 10px;
       background-color: rgb(45, 45, 45);
   }
+
+  #lw {
+    text-decoration: underline;
+    color: lightseagreen;
+  }
