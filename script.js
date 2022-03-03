@@ -34,7 +34,7 @@ submit.onclick = () => {
 	var oembed = "https://www.youtube.com/oembed?url=" + base2 + watch +  id + "&format=json";
 	// t.innerHTML = oembed
 	loadJSON(oembed, myData);
-	setCookie("lwv", link, 60);
+	setCookie("lwv", id, 60);
 	url.value = "";
 	ofs.addEventListener("click", () => {
 		var fs = `<title>Fullscreen Video</title> <iframe frameborder="0" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" src="` + base + id + end + `"></iframe>` + `<style>iframe {width: 100%; height: 100%;} * {padding: 0; margin: 0;}</style>`;
@@ -97,6 +97,31 @@ function getCookie(cname) {
 	let lwv = getCookie("lwv");
 	let lwvt = getCookie("lwvt");
 	if (lwvt != "") {
-	  alert("Your last watched video is " + lwvt);
+	  lw.style.display = "";
+	  l.innerHTML = lwvt;
+	  l.addEventListener("click", () => {
+		if(document.getElementById('instructions')) {
+			document.getElementById('instructions').remove();
+		}
+		vid.style.display = "";
+		id = lwv;
+		video_holder = document.getElementById('video-holder');
+		video_holder.style.display = 'block';
+		v.src = base + id + end;
+		video_holder_holder.appendChild(video_holder);
+		var oembed = "https://www.youtube.com/oembed?url=" + base2 + watch +  id + "&format=json";
+		// t.innerHTML = oembed
+		loadJSON(oembed, myData);
+		setCookie("lwv", id, 60);
+		url.value = "";
+		ofs.addEventListener("click", () => {
+			var fs = `<title>Fullscreen Video</title> <iframe frameborder="0" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" src="` + base + id + end + `"></iframe>` + `<style>iframe {width: 100%; height: 100%;} * {padding: 0; margin: 0;}</style>`;
+			var w = window.open();
+			w.document.body.innerHTML = fs;
+		});
+	  });
+	} else {
+		lw.style.display = "none";
+		l.innerHTML = "Unavailable";
 	}
   }
