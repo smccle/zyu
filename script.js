@@ -11,7 +11,7 @@ var u = document.querySelector("#user");
 var video_holder;
 var vid = document.querySelector(".video");
 var v = document.getElementById("video");
-var l = document.getElementById("l");
+var l = document.getElementById("lw");
 var lw = document.querySelector(".lw");
 var ofs = document.getElementById("ofs");
 var video_holder_holder = document.getElementById('video-holder-holder');
