@@ -34,7 +34,6 @@ submit.onclick = () => {
 	var oembed = "https://www.youtube.com/oembed?url=" + base2 + watch +  id + "&format=json";
 	// t.innerHTML = oembed
 	loadJSON(oembed, myData);
-	setCookie("lwv", id, 60);
 	url.value = "";
 	ofs.addEventListener("click", () => {
 		var fs = `<title>Fullscreen Video</title> <iframe frameborder="0" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" src="` + base + id + end + `"></iframe>` + `<style>iframe {width: 100%; height: 100%;} * {padding: 0; margin: 0;}</style>`;
@@ -68,6 +67,7 @@ function loadJSON(path, success, error) {
 	u.innerHTML = Data.author_name;
 	document.title = Data.title + " - " + Data.author_name;
 	setCookie("lwvt", Data.title, 60);
+	setCookie("lwv", id, 60);
   }
 
 function setCookie(cname, cvalue, exdays) {
