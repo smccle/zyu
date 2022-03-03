@@ -119,6 +119,7 @@ function getCookie(cname) {
 			var w = window.open();
 			w.document.body.innerHTML = fs;
 		});
+		l.style.display = "none";
 	  });
 	} else {
 		lw.style.display = "none";
