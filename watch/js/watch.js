@@ -17,6 +17,13 @@ home.onclick = () => {
   window.location.href = "./index.html"
 }
 
+function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 function loadJSON(path, success, error) {
 	var xhr = new XMLHttpRequest;
 	xhr.onreadystatechange = function () {
