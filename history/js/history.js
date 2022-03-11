@@ -33,54 +33,54 @@ function getCookie(cname) {
 }
 
   function loadHistory() {
-      let history = getCookie("history");
+      let history = decodeURIComponent(getCookie("history"));
       let decodedHistory = history.split(":");
-      let h1Decoded = decodedHistory[0].split("%");
+      let h1Decoded = decodedHistory[0].split(".");
       h1.innerHTML = h1Decoded[0]
       h1.onclick = function () {
           Send2(h1Decoded[1]);
       }
-      let h2Decoded = decodedHistory[1].split("%");
+      let h2Decoded = decodedHistory[1].split(".");
       h2.innerHTML = h2Decoded[0]
       h2.onclick = function () {
           Send2(h2Decoded[1]);
       }
-      let h3Decoded = decodedHistory[2].split("%");
+      let h3Decoded = decodedHistory[2].split(".");
       h3.innerHTML = h3Decoded[0]
       h3.onclick = function () {
           Send2(h3Decoded[1]);
       }
-      let h4Decoded = decodedHistory[3].split("%");
+      let h4Decoded = decodedHistory[3].split(".");
       h4.innerHTML = h4Decoded[0]
       h4.onclick = function () {
           Send2(h4Decoded[1]);
       }
-      let h5Decoded = decodedHistory[4].split("%");
+      let h5Decoded = decodedHistory[4].split(".");
       h5.innerHTML = h5Decoded[0]
       h5.onclick = function () {
           Send2(h5Decoded[1]);
       }
-      let h6Decoded = decodedHistory[5].split("%");
+      let h6Decoded = decodedHistory[5].split(".");
       h6.innerHTML = h6Decoded[0]
       h6.onclick = function () {
           Send2(h6Decoded[1]);
       }
-      let h7Decoded = decodedHistory[6].split("%");
+      let h7Decoded = decodedHistory[6].split(".");
       h7.innerHTML = h7Decoded[0]
       h7.onclick = function () {
           Send2(h7Decoded[1]);
       }
-      let h8Decoded = decodedHistory[7].split("%");
+      let h8Decoded = decodedHistory[7].split(".");
       h8.innerHTML = h8Decoded[0]
       h8.onclick = function () {
           Send2(h8Decoded[1]);
       }
-      let h9Decoded = decodedHistory[8].split("%");
+      let h9Decoded = decodedHistory[8].split(".");
       h9.innerHTML = h9Decoded[0]
       h9.onclick = function () {
           Send2(h9Decoded[1]);
       }
-      let h10Decoded = decodedHistory[9].split("%");
+      let h10Decoded = decodedHistory[9].split(".");
       h10.innerHTML = h10Decoded[0]
       h10.onclick = function () {
           Send2(h10Decoded[1]);
