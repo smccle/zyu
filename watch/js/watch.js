@@ -24,6 +24,22 @@ function setCookie(cname,cvalue,exdays) {
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(';');
+	for(let i = 0; i < ca.length; i++) {
+	  let c = ca[i];
+	  while (c.charAt(0) == ' ') {
+		c = c.substring(1);
+	  }
+	  if (c.indexOf(name) == 0) {
+		return c.substring(name.length, c.length);
+	  }
+	}
+	return "";
+  }
+
 function loadJSON(path, success, error) {
 	var xhr = new XMLHttpRequest;
 	xhr.onreadystatechange = function () {
@@ -49,6 +65,7 @@ function loadJSON(path, success, error) {
 	document.title = Data.title + " - " + Data.author_name;
 	setCookie("lwvt", Data.title, 60);
 	setCookie("lwv", id, 60);
+  setCookie("history", getCookie("history") + Data.title + ":" + Data.author_name + ":");
   }
 
 var queryString = new Array();
