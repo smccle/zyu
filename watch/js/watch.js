@@ -65,6 +65,7 @@ function loadJSON(path, success, error) {
 	document.title = Data.title + " - " + Data.author_name;
 	setCookie("lwvt", Data.title, 60);
 	setCookie("lwv", id, 60);
+  setCookie("history", encodeURIComponent(getCookie("history")) + encodeURIComponent(Data.title) + "." + encodeURIComponent(id) + ":", 60);
   }
 
 var queryString = new Array();
@@ -96,3 +97,4 @@ window.onload = function () {
         loadJSON(oembed, myData);
         url.value = "";
     }
+};
