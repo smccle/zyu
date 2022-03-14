@@ -24,7 +24,7 @@ function getCookie(cname) {
 	window.location.href = url;
 }
 
-  function loadHistory() {
+  const loadHistory = () => {
       let count = parseInt(getCookie("hcount")) - 1;
       let history = decodeURIComponent(getCookie("history"));
       let decodedHistory = history.split(":");
@@ -36,4 +36,4 @@ function getCookie(cname) {
       }
   }
 
-  Array.from({length: times}, loadHistory);
+  Array.from({length: times}, () => loadHistory());
