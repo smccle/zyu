@@ -1,3 +1,7 @@
+let nh;
+let nhd;
+let count = 0 - 1;
+
 let h = document.getElementById("h"),
 history_holder = document.querySelector(".history_holder"),
 times = parseInt(getCookie("hcount")) + 1;
@@ -26,11 +30,10 @@ function getCookie(cname) {
 }
 
   const loadHistory = () => {
-      let count = 0;
       let history = decodeURIComponent(getCookie("history"));
       let decodedHistory = history.split(":");
-      let nh = h.cloneNode(true);
-      let nhd = decodedHistory[count += 1].split(".");
+      nh = h.cloneNode(true);
+      nhd = decodedHistory[count += 1].split(".");
       nh.innerHTML = nhd[0];
       nh.onclick = function() {
           Send2(nhd[1]);
