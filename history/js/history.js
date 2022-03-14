@@ -32,10 +32,10 @@ function getCookie(cname) {
       let nh = h.cloneNode(true);
       let nhd = decodedHistory[count += 1].split(".");
       nh.innerHTML = nhd[0];
+      nh.onclick = function() {
+          Send2(nhd[1]);
+      }
       history_holder.appendChild(nh);
-      history_holder.children[1].onclick = function() {
-        Send2(nhd[1]);
-    }
     }
 
   Array.from({length: times}, () => loadHistory());
