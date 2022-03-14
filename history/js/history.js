@@ -1,5 +1,5 @@
 let h = document.getElementById("h"),
-times = parseInt(getCookie("hcount"));
+times = parseInt(getCookie("hcount")) + 1;
 
 function getCookie(cname) {
 	let name = cname + "=";
