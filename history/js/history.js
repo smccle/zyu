@@ -26,7 +26,7 @@ function getCookie(cname) {
 }
 
   const loadHistory = () => {
-      let count = parseInt(getCookie("hcount")) - 1;
+      let count = -1;
       let history = decodeURIComponent(getCookie("history"));
       let decodedHistory = history.split(":");
       let nh = h.cloneNode(true);
