@@ -1,8 +1,8 @@
-let h = document.getElementById("h");
-let history_holder = document.getElementById("history_holder");
-let nh;
-let nhd;
-let count = 0 - 1;
+let h = document.getElementById("h"),
+history_holder = document.getElementById("history_holder"),
+nh,
+nhd,
+count = 0 - 1;
 
 function getCookie(cname) {
 	let name = cname + "=";
@@ -30,13 +30,13 @@ function getCookie(cname) {
 function loadHistory() {
     let history = getCookie("history");
     let decodedHistory = history.split(":");
-    Array.from({length: decodedHistory.length}, () => {
-	nh = h.cloneNode(true);
+    Array.from({length: decodedHistory.length}, function() {
+	    nh = h.cloneNode(true);
         nhd = decodedHistory[count += 1].split("/.//../");
         nh.innerHTML = decodeURIComponent(nhd[0]);
         nh.onclick = function() {
            Send2(decodeURIComponent(nhd[1]));
         }
         history_holder.appendChild(nh);
-    }
+    });
 }
