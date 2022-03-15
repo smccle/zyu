@@ -1,14 +1,12 @@
-let nh;
-let nhd;
-let count = 0 - 1;
-
 let h = document.getElementById("h"),
 history_holder = document.querySelector(".history_holder"),
-times = parseInt(getCookie("hcount")) + 1;
+nh,
+nhd,
+count = 0 - 1;
 
 function getCookie(cname) {
 	let name = cname + "=";
-	let decodedCookie = decodeURIComponent(document.cookie);
+	let decodedCookie = document.cookie;
 	let ca = decodedCookie.split(';');
 	for(let i = 0; i < ca.length; i++) {
 	  let c = ca[i];
@@ -29,16 +27,16 @@ function getCookie(cname) {
 	window.location.href = url;
 }
 
-  const loadHistory = () => {
-      let history = decodeURIComponent(getCookie("history"));
-      let decodedHistory = history.split(":");
-      nh = h.cloneNode(true);
-      nhd = decodedHistory[count += 1].split(".");
-      nh.innerHTML = nhd[0];
-      nh.onclick = function() {
-          Send2(nhd[1]);
-      }
-      history_holder.appendChild(nh);
+const loadHistory = () => {
+    let history = getCookie("history");
+    let decodedHistory = history.split(":");
+    Array.from({length: decodedHistory.length}, () => {
+	    nh = h.cloneNode(true);
+        nhd = decodedHistory[count += 1].split("/.//../");
+        nh.innerHTML = decodeURIComponent(nhd[0]);
+        nh.onclick = function() {
+           Send2(decodeURIComponent(nhd[1]));
+        }
+        history_holder.appendChild(nh);
     }
-
-  Array.from({length: times}, () => loadHistory());
+}
