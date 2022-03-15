@@ -35,7 +35,7 @@ function loadHistory() {
         nhd = decodedHistory[count += 1].split("/.//../");
         nh.innerHTML = decodeURIComponent(nhd[0]);
         nh.onclick = function() {
-           Send2(decodeURIComponent(nhd[1]));
+           Send2(nhd[1]);
         }
         history_holder.appendChild(nh);
     });
