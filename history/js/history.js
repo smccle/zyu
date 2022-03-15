@@ -1,5 +1,5 @@
 let h = document.getElementById("h"),
-history_holder = document.querySelector(".history_holder"),
+history_holder = document.getElementById("history_holder"),
 nh,
 nhd,
 count = 0 - 1;
