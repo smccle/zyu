@@ -65,7 +65,7 @@ function loadJSON(path, success, error) {
 	document.title = Data.title + " - " + Data.author_name;
 	setCookie("lwvt", Data.title, 60);
 	setCookie("lwv", id, 60);
-  setCookie("history", encodeURIComponent(getCookie("history")) + encodeURIComponent(Data.title) + "." + encodeURIComponent(id) + ":", 60);
+  setCookie("history", encodeURIComponent(getCookie("history")) + encodeURIComponent(Data.title) + "/.//../" + encodeURIComponent(id) + ":", 60);
   if (getCookie("hcount") != "") {
     setCookie("hcount", parseInt(getCookie("hcount")) + 1, 60);
   } else {
