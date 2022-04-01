@@ -33,38 +33,13 @@ function Send2(vID) {
 	window.location.href = url;
 }
 
-function setCookie(cname, cvalue, exdays) {
-	const d = new Date();
-	d.setTime(d.getTime() + (exdays*24*60*60*1000));
-	let expires = "expires=" + d.toUTCString();
-	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-	let name = cname + "=";
-	let decodedCookie = decodeURIComponent(document.cookie);
-	let ca = decodedCookie.split(';');
-	for(let i = 0; i < ca.length; i++) {
-	  let c = ca[i];
-	  while (c.charAt(0) == ' ') {
-		c = c.substring(1);
-	  }
-	  if (c.indexOf(name) == 0) {
-		return c.substring(name.length, c.length);
-	  }
-	}
-	return "";
-  }
-
-  function checkCookie() {
-	let lwv = getCookie("lwv");
-	let lwvt = getCookie("lwvt");
-	if (lwvt != "") {
-	  lw.style.display = "";
-	  l.innerHTML = lwvt;
-	  l.addEventListener("click", () => {
-		  Send2(lwv)
-	  });
+  function checkLWV() {
+    if (localStorage.getItem("lwv") != null && localStorage.getItem("lwvt") != null) {
+		lw.style.display = "";
+		l.innerHTML = localStorage.getItem("lwvt");
+		l.addEventListener("click", () => {
+			Send2(localStorage.getItem("lwv"));
+		})
 	} else {
 		lw.style.display = "none";
 		l.innerHTML = "Unavailable";
