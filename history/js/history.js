@@ -1,42 +1,33 @@
-let h = document.getElementById("h"),
-history_holder = document.getElementById("history_holder"),
-nh,
-nhd,
-count = 0 - 1;
+var h = document.getElementById("h"),
+history_holder = document.getElementById("history_holder");
 
-function getCookie(cname) {
-	let name = cname + "=";
-	let decodedCookie = document.cookie;
-	let ca = decodedCookie.split(';');
-	for(let i = 0; i < ca.length; i++) {
-	  let c = ca[i];
-	  while (c.charAt(0) == ' ') {
-		c = c.substring(1);
-	  }
-	  if (c.indexOf(name) == 0) {
-		return c.substring(name.length, c.length);
-	  }
-	}
-	return "";
-  }
-
-  function Send2(vID) {
+function Send2(vID) {
 	var v = vID;
 	v = v.substr(v.length - 11, 11);
-	var url = "watch.html?v=" + encodeURIComponent(v);
+	var url = "./watch.html?v=" + encodeURIComponent(v);
 	window.location.href = url;
 }
 
 function loadHistory() {
-    let history = getCookie("history");
-    let decodedHistory = history.split(":");
-    Array.from({length: decodedHistory.length}, function() {
-	    nh = h.cloneNode(true);
-        nhd = decodedHistory[count += 1].split("/.//../");
-        nh.innerHTML = decodeURIComponent(nhd[0]);
-        nh.onclick = function() {
-           Send2(nhd[1]);
-        }
-        history_holder.appendChild(nh);
-    });
+	var count = 0-1;
+	var history = localStorage.getItem("history");
+    if (history != null) {
+		let decodedHistory = history.split(":");
+		Array.from({length: decodedHistory.length}, () => {
+			var nh = document.createElement("p");
+			var nhd = decodedHistory[count += 1].split(".");
+			nh.innerHTML = Base64.decode(nhd[0]);
+			nh.onclick = () => {
+				Send2(Base64.decode(nhd[1]));
+			}
+			h.appendChild(nh);
+			// localStorage.removeItem("history");
+		});
+	} else {
+		h.innerHTML = "Nothing recently watched.";
+		Array.from({length: h.children.length}, () => {
+			var hc = h.firstChild;
+			hc.parentNode.removeChild(hc);
+		})
+	}
 }
