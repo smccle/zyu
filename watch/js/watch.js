@@ -63,9 +63,13 @@ function loadJSON(path, success, error) {
 	t.innerHTML = Data.title;
 	u.innerHTML = Data.author_name;
 	document.title = Data.title + " - " + Data.author_name;
-	setCookie("lwvt", Data.title, 60);
-	setCookie("lwv", id, 60);
-        setCookie("history", encodeURIComponent(getCookie("history")) + encodeURIComponent(Data.title) + "/.//../" + encodeURIComponent(id) + ":", 60);
+  localStorage.setItem("lwvt", Data.title);
+  localStorage.setItem("lwv", id);
+  if (localStorage.getItem("history") != null) {
+    localStorage.setItem("history", localStorage.getItem("history") + Base64.encode(Data.title) + "." + Base64.encode(id) + ":");
+  } else {
+    localStorage.setItem("history", Base64.encode(Data.title) + "." + Base64.encode(id) + ":");
+  }
   }
 
 var queryString = new Array();
