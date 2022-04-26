@@ -18,10 +18,10 @@
     <body onload="loadHistory()">
      <div id="particles-js">
              <div class="inset-0 flex items-center justify-center absolute" id="modalEl">
-            <div id="history_holder" class="bg-gray-900 p-6 text-center rounded">
-                <a style="color: blue; text-decoration: underline;" href="./index.html">Back</a>
+            <div id="history_holder" class="p-6 text-center rounded">
+                <a style="cursor: pointer; color: blue; text-decoration: underline;" href="./index.html">Back</a>
                 <hr>
-                <a style="color: blue; text-decoration: underline;" onclick="localStorage.removeItem('history'); loadHistory();">Clear History</a>
+                <a style="cursor: pointer; color: blue; text-decoration: underline;" onclick="localStorage.removeItem('history'); loadHistory();">Clear History</a>
                 <hr>
                 <br>
                 <p id="h"></p>
