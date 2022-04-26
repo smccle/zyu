@@ -125,5 +125,5 @@ var pJS = function(tag_id, params){
     tmp: {}
   };
   
-  PJS('particles-js')
+  pJS('particles-js')
   
