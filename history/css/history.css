@@ -1,6 +1,7 @@
 #modalEl {
   overflow-y: auto;
   overflow-x: hidden;
+  background-color: rgb(45, 45, 45);
 }
 
 html {
