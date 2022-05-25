@@ -25,14 +25,22 @@
 
   gtag('config', 'G-QR0J225RDB');
 </script>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
 </head>
 
 <body onload="checkLWV()">
   <div id="particles-js">
   <div class="fixed inset-0 flex items-center justify-center" id="modalEl">
     <div id="whiteModalEl" class="max-w-xl p-6 text-center">
-      <div class="container">
-        <img src="https://raw.githubusercontent.com/zytkdev/zyu/main/search/img/zyu.png">
+      <div class="container" style="justify-content: center; align-items: center;">
+        <img src="https://raw.githubusercontent.com/zytkdev/zyu/main/search/img/zyu.png" class="center">
             <div class=center>
                 <h3 style="font-weight: bolder;" class="text-lg">YouTube Link:</h3>
                 <input style="height: 25px; color: black;" type="text" id="vLink" name="vLink" />
@@ -58,6 +66,8 @@
           <hr style="width:100% !important; height: 1px;">
           <div class="center">
             <a style="color: gray; text-decoration: underline;" href="./history.html">History</a>
+            <br>
+            <a style="color: gray; text-decoration: underline;" href="./devlog.txt">devlog</a>
             <p>Made ZYTK Devs<br>
                 Check Out <a class="linelink" href="https://www.github.com/z1tk/" target="_blank">My Github!</a></p>
             <p id="ver">v0.8</p>
