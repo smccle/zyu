@@ -21,14 +21,26 @@ var id;
 
 function Send() {
 	var v = document.getElementById("vLink").value;
-	v = v.substr(v.length - 11, 11);
+	var beforeUrl = v.split("?")[1];
+	if (beforeUrl.includes("&")) {
+		afterUrl = beforeUrl.split("&")[0];
+		v = afterUrl.split("v=")[1];
+	} else {
+		v = beforeUrl.split("v=")[1];
+	}
 	var url = "watch.html?v=" + encodeURIComponent(v);
 	window.location.href = url;
 }
 
 function Send2(vID) {
 	var v = vID;
-	v = v.substr(v.length - 11, 11);
+	var beforeUrl = v.split("?")[1];
+	if (beforeUrl.includes("&")) {
+		afterUrl = beforeUrl.split("&")[0];
+		v = afterUrl.split("v=")[1];
+	} else {
+		v = beforeUrl.split("v=")[1];
+	}
 	var url = "watch.html?v=" + encodeURIComponent(v);
 	window.location.href = url;
 }
